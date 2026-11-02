@@ -1,0 +1,40 @@
+[app]
+locale = "tr"
+log_level = "INFO"
+json_logs = false
+
+[paths]
+data_dir = "data"
+db_path = "data/course.db"
+videos_dir = "data/videos"
+audio_dir = "data/audio"
+transcripts_dir = "data/transcripts"
+frames_dir = "data/frames"
+exports_dir = "data/exports"
+
+[ingest]
+copy_into_data = true
+
+[transcription]
+model_size = "medium"
+language = "tr"
+device = "cpu"
+compute_type = "int8"
+normalize_version = "1"
+adapter = "auto"  # auto | fake | faster_whisper
+
+[visual]
+scene_threshold = 27.0
+ocr_engine = "stub"
+
+[topics]
+taxonomy_version = "1"
+prompt_version = "1"
+
+[enrichment]
+default_model = "gpt-4o-mini"
+llm_adapter = "fake"  # fake | litellm | auto | noop
+require_review_for_publish = true
+
+[export]
+default_formats = ["json", "md", "mermaid"]

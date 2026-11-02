@@ -1,0 +1,22 @@
+{
+  "topics": [
+    {
+      "stable_id": "abap-select",
+      "title_tr": "SELECT ifadesi",
+      "title_canonical": "SELECT",
+      "required_dimensions": ["explanation", "example", "exercise", "assessment"]
+    },
+    {
+      "stable_id": "abap-data",
+      "title_tr": "DATA bildirimi",
+      "title_canonical": "DATA",
+      "required_dimensions": ["explanation", "example", "exercise", "assessment"]
+    },
+    {
+      "stable_id": "abap-internal-tables",
+      "title_tr": "Internal table'lar",
+      "title_canonical": "Internal Tables",
+      "required_dimensions": ["explanation", "example", "exercise", "assessment"]
+    }
+  ]
+}

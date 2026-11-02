@@ -1,0 +1,21 @@
+site_name: SAP ABAP Curriculum Intelligence
+site_description: Local-first curriculum docs generated from training videos
+docs_dir: docs
+
+nav:
+  - Architecture: architecture.md
+  - Pipeline contracts: pipeline-contracts.md
+  - ADRs:
+      - Local-first monolith: adr/001-local-first-monolith.md
+      - Evidence layers: adr/002-evidence-inference-generation.md
+      - SQLite: adr/003-sqlite-sqlalchemy-alembic.md
+      - Idempotent jobs: adr/004-resumable-idempotent-jobs.md
+      - LLM providers: adr/005-provider-agnostic-llm.md
+      - Human approval: adr/006-human-approval-gate.md
+      - Turkish + SAP terms: adr/007-turkish-sap-terminology.md
+      - Config: adr/008-toml-env-cli-config.md
+      - Artifacts: adr/009-artifacts-on-disk.md
+      - Synthetic tests: adr/010-synthetic-tests.md
+
+theme:
+  name: readthedocs

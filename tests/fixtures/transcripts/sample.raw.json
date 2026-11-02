@@ -1,0 +1,13 @@
+{
+  "sha256": "fixture",
+  "language": "tr",
+  "normalize_version": "1",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.5,
+      "text_raw": "  Merhaba , bu bir SELECT ifadesidir.  ",
+      "avg_logprob": -0.2
+    }
+  ]
+}
