@@ -18,6 +18,10 @@ uv pip install -e ".[dev]"
 ## Quick start (offline / fake ASR)
 
 ```bash
+# One-shot synthetic demo
+course demo
+
+# Or step by step
 course ingest --course demo --path tests/fixtures/synthetic_video/sample.mp4
 course transcribe --course demo --adapter fake
 course extract-visuals --course demo --extractor stub
@@ -25,10 +29,10 @@ course discover-topics --course demo
 course map-curriculum
 course analyze-gaps --reference tests/fixtures/curriculum_ref/reference.json
 course enrich
+course content list
 course review --list
 course export --format all
 course status
-course run --course demo --path tests/fixtures/synthetic_video/sample.mp4 --from ingest --to enrich --adapter fake
 ```
 
 ## HTTP API
@@ -57,6 +61,8 @@ Endpoints: `/health`, `/v1/status`, `/v1/courses`, `/v1/courses/{slug}/videos`, 
 | `course serve` | API |
 | `course relations` | edit topic graph |
 | `course topics` | inspect topics |
+| `course content` | human overrides |
+| `course demo` | synthetic full run |
 | `course run` | 1–5 orchestration |
 
 Relation examples:

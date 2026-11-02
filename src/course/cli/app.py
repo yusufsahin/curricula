@@ -8,6 +8,8 @@ from typing import Annotated
 import typer
 
 from course.cli.commands.analyze_gaps import analyze_gaps_command
+from course.cli.commands.content import content_app
+from course.cli.commands.demo import demo_command
 from course.cli.commands.discover_topics import discover_topics_command
 from course.cli.commands.enrich import enrich_command
 from course.cli.commands.export import export_command
@@ -74,6 +76,8 @@ app.command("status")(status_command)
 app.command("serve")(serve_command)
 app.add_typer(relations_app, name="relations")
 app.add_typer(topics_app, name="topics")
+app.add_typer(content_app, name="content")
+app.command("demo")(demo_command)
 app.command("run")(run_command)
 
 

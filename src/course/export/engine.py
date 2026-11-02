@@ -238,11 +238,13 @@ class ExportService:
     def _coverage_report(self, session: Session) -> str:
         topics = list(session.scalars(select(Topic)).all())
         gaps = list(session.scalars(select(KnowledgeGap)).all())
+        blocks = list(session.scalars(select(ContentBlock)).all())
         lines = [
             "# Content coverage report",
             "",
             f"- Topics: {len(topics)}",
             f"- Knowledge gaps: {len(gaps)}",
+            f"- Content blocks: {len(blocks)}",
             "",
             "## Gaps by class",
             "",
@@ -252,6 +254,29 @@ class ExportService:
             by_class[gap.gap_class] = by_class.get(gap.gap_class, 0) + 1
         for cls, count in sorted(by_class.items()):
             lines.append(f"- {cls}: {count}")
+        lines.extend(["", "## Topics", ""])
+        gaps_by_topic: dict[object, list[KnowledgeGap]] = {}
+        for gap in gaps:
+            gaps_by_topic.setdefault(gap.topic_id, []).append(gap)
+        blocks_by_topic: dict[object, list[ContentBlock]] = {}
+        for block in blocks:
+            blocks_by_topic.setdefault(block.topic_id, []).append(block)
+        for topic in sorted(topics, key=lambda t: t.stable_id):
+            topic_gaps = gaps_by_topic.get(topic.id, [])
+            topic_blocks = blocks_by_topic.get(topic.id, [])
+            worst = "complete"
+            for gap in topic_gaps:
+                if gap.gap_class == "missing":
+                    worst = "missing"
+                    break
+                if gap.gap_class == "insufficient" and worst != "missing":
+                    worst = "insufficient"
+                if gap.gap_class == "uncertain" and worst == "complete":
+                    worst = "uncertain"
+            lines.append(
+                f"- `{topic.stable_id}` — {topic.title_tr}: "
+                f"coverage={worst}, gaps={len(topic_gaps)}, blocks={len(topic_blocks)}"
+            )
         lines.append("")
         return "\n".join(lines)
 
