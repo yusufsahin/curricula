@@ -56,6 +56,7 @@ Endpoints: `/health`, `/v1/status`, `/v1/courses`, `/v1/courses/{slug}/videos`, 
 | `course status` | ops |
 | `course serve` | API |
 | `course relations` | edit topic graph |
+| `course topics` | inspect topics |
 | `course run` | 1–5 orchestration |
 
 Relation examples:

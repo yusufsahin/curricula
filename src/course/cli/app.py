@@ -19,6 +19,7 @@ from course.cli.commands.review import review_command
 from course.cli.commands.run import run_command
 from course.cli.commands.serve import serve_command
 from course.cli.commands.status import status_command
+from course.cli.commands.topics import topics_app
 from course.cli.commands.transcribe import transcribe_command
 from course.cli.context import build_context
 
@@ -72,6 +73,7 @@ app.command("export")(export_command)
 app.command("status")(status_command)
 app.command("serve")(serve_command)
 app.add_typer(relations_app, name="relations")
+app.add_typer(topics_app, name="topics")
 app.command("run")(run_command)
 
 
