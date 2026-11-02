@@ -58,6 +58,7 @@ Endpoints: `/health`, `/v1/status`, `/v1/courses`, `/v1/courses/{slug}/videos`, 
 | `course review` | 4 |
 | `course export` | 5 |
 | `course status` | ops |
+| `course quality` | coverage / quality signals |
 | `course serve` | API |
 | `course relations` | edit topic graph |
 | `course topics` | inspect topics |

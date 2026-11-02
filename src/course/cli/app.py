@@ -16,6 +16,7 @@ from course.cli.commands.export import export_command
 from course.cli.commands.extract_visuals import extract_visuals_command
 from course.cli.commands.ingest import ingest_command
 from course.cli.commands.map_curriculum import map_curriculum_command
+from course.cli.commands.quality import quality_command
 from course.cli.commands.relations import relations_app
 from course.cli.commands.review import review_command
 from course.cli.commands.run import run_command
@@ -73,6 +74,7 @@ app.command("enrich")(enrich_command)
 app.command("review")(review_command)
 app.command("export")(export_command)
 app.command("status")(status_command)
+app.command("quality")(quality_command)
 app.command("serve")(serve_command)
 app.add_typer(relations_app, name="relations")
 app.add_typer(topics_app, name="topics")
