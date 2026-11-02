@@ -1,6 +1,6 @@
 import pytest
 
-from course.llm.client import FakeLLMClient, NoOpLLMClient, resolve_llm_client
+from curricula.llm.client import FakeLLMClient, NoOpLLMClient, resolve_llm_client
 
 
 def test_resolve_fake() -> None:

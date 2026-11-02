@@ -5,25 +5,25 @@ from pathlib import Path
 import pytest
 from sqlalchemy import select
 
-from course.curriculum.mapper import MapCurriculumRequest, MapCurriculumService
-from course.db.models import (
+from curricula.curriculum.mapper import MapCurriculumRequest, MapCurriculumService
+from curricula.db.models import (
     ContentBlock,
     KnowledgeGap,
     Topic,
     TopicRelationship,
     VisualEvidence,
 )
-from course.domain.enums import ReviewStatus
-from course.enrichment.engine import EnrichRequest, EnrichService
-from course.export.engine import ExportRequest, ExportService
-from course.gaps.analyzer import AnalyzeGapsRequest, AnalyzeGapsService
-from course.media.ingest import IngestService
-from course.pipeline.contracts import IngestRequest, TranscribeRequest
-from course.review.service import PublishWithoutApprovalError, ReviewService
-from course.topics.discovery import DiscoverTopicsRequest, DiscoverTopicsService
-from course.transcription.engine import TranscribeService
-from course.transcription.whisper_adapter import FakeWhisperAdapter
-from course.visual.extract import ExtractVisualsRequest, ExtractVisualsService
+from curricula.domain.enums import ReviewStatus
+from curricula.enrichment.engine import EnrichRequest, EnrichService
+from curricula.export.engine import ExportRequest, ExportService
+from curricula.gaps.analyzer import AnalyzeGapsRequest, AnalyzeGapsService
+from curricula.media.ingest import IngestService
+from curricula.pipeline.contracts import IngestRequest, TranscribeRequest
+from curricula.review.service import PublishWithoutApprovalError, ReviewService
+from curricula.topics.discovery import DiscoverTopicsRequest, DiscoverTopicsService
+from curricula.transcription.engine import TranscribeService
+from curricula.transcription.whisper_adapter import FakeWhisperAdapter
+from curricula.visual.extract import ExtractVisualsRequest, ExtractVisualsService
 
 
 def _seed(settings, session_factory, synthetic_video, media_probe) -> None:

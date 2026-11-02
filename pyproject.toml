@@ -3,13 +3,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "course"
+name = "curricula"
 version = "0.1.0"
 description = "Local-first Turkish SAP ABAP curriculum intelligence from training videos"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
-authors = [{ name = "videotocontent" }]
+authors = [{ name = "yusufsahin" }]
 dependencies = [
   "typer>=0.12.0",
   "rich>=13.7.0",
@@ -38,10 +38,14 @@ dev = [
 ]
 
 [project.scripts]
-course = "course.cli.app:main"
+curricula = "curricula.cli.app:main"
+course = "curricula.cli.app:main"
+
+[project.urls]
+Repository = "https://github.com/yusufsahin/curricula"
 
 [tool.hatch.build.targets.sdist]
-include = ["src/course", "config", "docs", "alembic", "README.md"]
+include = ["src/curricula", "config", "docs", "alembic", "README.md"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -57,12 +61,12 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 
 [tool.ruff.lint.per-file-ignores]
 # FastAPI dependency injection uses Depends(...) in defaults by design.
-"src/course/api/app.py" = ["B008"]
+"src/curricula/api/app.py" = ["B008"]
 
 [tool.mypy]
 python_version = "3.12"
 strict = true
-packages = ["course"]
+packages = ["curricula"]
 mypy_path = "src"
 warn_unused_configs = true
 

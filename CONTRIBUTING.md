@@ -20,9 +20,9 @@ CI runs the same suite on push/PR (`.github/workflows/ci.yml`).
 ## Local demo
 
 ```bash
-course demo
-course quality
-course topics list
+curricula demo
+curricula quality
+curricula topics list
 ```
 
 ## Design rules

@@ -12,8 +12,8 @@ from sqlalchemy import engine_from_config, pool
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from course.db.base import Base  # noqa: E402
-from course.db import models as _models  # noqa: E402, F401
+from curricula.db.base import Base  # noqa: E402
+from curricula.db import models as _models  # noqa: E402, F401
 
 config = context.config
 if config.config_file_name is not None:

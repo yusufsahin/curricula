@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from course.content.overrides import ContentService
-from course.db.models import ContentBlock, Topic
-from course.domain.ids import new_id
+from curricula.content.overrides import ContentService
+from curricula.db.models import ContentBlock, Topic
+from curricula.domain.ids import new_id
 
 
 def test_human_override_versions(settings, session_factory) -> None:

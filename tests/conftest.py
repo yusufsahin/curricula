@@ -7,9 +7,9 @@ from pathlib import Path
 import pytest
 from sqlalchemy.orm import Session, sessionmaker
 
-from course.config import Settings, load_settings
-from course.db.session import create_schema, make_engine, make_session_factory
-from course.media.metadata import StaticMediaProbe
+from curricula.config import Settings, load_settings
+from curricula.db.session import create_schema, make_engine, make_session_factory
+from curricula.media.metadata import StaticMediaProbe
 
 
 @pytest.fixture

@@ -1,4 +1,4 @@
-from course.pipeline.jobs import fingerprint_parts
+from curricula.pipeline.jobs import fingerprint_parts
 
 
 def test_fingerprint_parts_stable() -> None:

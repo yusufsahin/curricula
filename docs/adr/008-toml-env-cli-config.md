@@ -10,7 +10,7 @@ Local defaults must be reproducible while allowing per-run overrides.
 
 ## Decision
 
-Load configuration in precedence order: `config/default.toml` < `COURSE_*` environment variables < CLI flags.
+Load configuration in precedence order: `config/default.toml` < `CURRICULA_*` environment variables < CLI flags.
 
 ## Consequences
 

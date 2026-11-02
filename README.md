@@ -1,12 +1,14 @@
-# course — SAP ABAP Curriculum Intelligence
+# Curricula
 
-Local-first Python toolkit that turns Turkish SAP ABAP training videos into a structured, traceable curriculum (topics, gaps, enrichment, exports).
+Local-first toolkit that turns Turkish SAP ABAP training videos into a structured, traceable curriculum (topics, gaps, enrichment, exports).
+
+**Repo:** https://github.com/yusufsahin/curricula
 
 ## Requirements
 
 - Python 3.12+
 - Optional: FFmpeg/`ffprobe` for real media metadata
-- Optional extras: `whisper`, `visual`, `export`, `llm`
+- Optional extras: `whisper`, `visual`, `export`, `llm`, `api`
 
 ## Install
 
@@ -19,68 +21,67 @@ uv pip install -e ".[dev]"
 
 ```bash
 # One-shot synthetic demo
-course demo
+curricula demo
 
 # Or step by step
-course ingest --course demo --path tests/fixtures/synthetic_video/sample.mp4
-course transcribe --course demo --adapter fake
-course extract-visuals --course demo --extractor stub
-course discover-topics --course demo
-course map-curriculum
-course analyze-gaps --reference tests/fixtures/curriculum_ref/reference.json
-course enrich
-course content list
-course review --list
-course export --format all
-course status
+curricula ingest --course demo --path tests/fixtures/synthetic_video/sample.mp4
+curricula transcribe --course demo --adapter fake
+curricula extract-visuals --course demo --extractor stub
+curricula discover-topics --course demo
+curricula map-curriculum
+curricula analyze-gaps --reference tests/fixtures/curriculum_ref/reference.json
+curricula enrich
+curricula content list
+curricula review --list
+curricula export --format all
+curricula status
+curricula quality
 ```
 
 ## HTTP API
 
 ```bash
-uv pip install -e ".[dev]"   # includes fastapi/uvicorn
-course serve --host 127.0.0.1 --port 8000
+curricula serve --host 127.0.0.1 --port 8000
 ```
 
 Endpoints: `/health`, `/v1/status`, `/v1/courses`, `/v1/courses/{slug}/videos`, `/v1/topics`, `/v1/gaps`, `/v1/jobs`.
 
 ## CLI
 
+Primary command: `curricula` (alias: `course`).
+
 | Command | Phase |
 | --- | --- |
-| `course ingest` | 1 |
-| `course transcribe` | 1 |
-| `course extract-visuals` | 2 |
-| `course discover-topics` | 3 |
-| `course map-curriculum` | 3 |
-| `course analyze-gaps` | 4 |
-| `course enrich` | 4 |
-| `course review` | 4 |
-| `course export` | 5 |
-| `course status` | ops |
-| `course quality` | coverage / quality signals |
-| `course serve` | API |
-| `course relations` | edit topic graph |
-| `course topics` | inspect topics |
-| `course content` | human overrides |
-| `course demo` | synthetic full run |
-| `course run` | 1–5 orchestration |
-
-Relation examples:
+| `curricula ingest` | 1 |
+| `curricula transcribe` | 1 |
+| `curricula extract-visuals` | 2 |
+| `curricula discover-topics` | 3 |
+| `curricula map-curriculum` | 3 |
+| `curricula analyze-gaps` | 4 |
+| `curricula enrich` | 4 |
+| `curricula review` | 4 |
+| `curricula export` | 5 |
+| `curricula status` | ops |
+| `curricula quality` | coverage / quality signals |
+| `curricula serve` | API |
+| `curricula relations` | edit topic graph |
+| `curricula topics` | inspect topics |
+| `curricula content` | human overrides |
+| `curricula demo` | synthetic full run |
+| `curricula run` | 1–5 orchestration |
 
 ```bash
-course relations list
-course relations add --from abap-data --to abap-select --type prerequisite
-course relations approve <relation-uuid>
-course relations delete <relation-uuid>
+curricula relations list
+curricula relations add --from abap-data --to abap-select --type prerequisite
+curricula topics list
+curricula content override <id> --text "..."
 ```
-
 
 Global flags: `--config`, `--db`, `--data-dir`, `--verbose`, `--quiet`, `--json-logs`.
 
 ## Configuration
 
-Defaults live in [`config/default.toml`](config/default.toml). Override with `COURSE_*` env vars or CLI flags.
+Defaults live in [`config/default.toml`](config/default.toml). Override with `CURRICULA_*` env vars or CLI flags.
 
 ## Development
 
@@ -89,6 +90,8 @@ ruff check src tests
 mypy src
 pytest
 ```
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Architecture
 

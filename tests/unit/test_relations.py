@@ -3,9 +3,9 @@ from __future__ import annotations
 import pytest
 from sqlalchemy.orm import Session, sessionmaker
 
-from course.curriculum.relations import RelationError, RelationsService
-from course.db.models import Topic
-from course.domain.ids import new_id
+from curricula.curriculum.relations import RelationError, RelationsService
+from curricula.db.models import Topic
+from curricula.domain.ids import new_id
 
 
 def _topic(session: Session, stable_id: str, title: str) -> Topic:

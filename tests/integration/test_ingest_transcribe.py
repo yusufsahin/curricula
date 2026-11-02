@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from sqlalchemy import select
 
-from course.db.models import ProcessingJob, TranscriptSegment, Video
-from course.domain.enums import ProcessingStatus
-from course.media.ingest import IngestService
-from course.pipeline.contracts import IngestRequest, TranscribeRequest
-from course.transcription.engine import TranscribeService
-from course.transcription.whisper_adapter import FakeWhisperAdapter
+from curricula.db.models import ProcessingJob, TranscriptSegment, Video
+from curricula.domain.enums import ProcessingStatus
+from curricula.media.ingest import IngestService
+from curricula.pipeline.contracts import IngestRequest, TranscribeRequest
+from curricula.transcription.engine import TranscribeService
+from curricula.transcription.whisper_adapter import FakeWhisperAdapter
 
 
 def test_ingest_idempotent(settings, session_factory, synthetic_video, media_probe) -> None:

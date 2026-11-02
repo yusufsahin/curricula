@@ -1,7 +1,7 @@
 import pytest
 
-from course.domain.enums import PipelineStage
-from course.pipeline.runner import resolve_stage_range
+from curricula.domain.enums import PipelineStage
+from curricula.pipeline.runner import resolve_stage_range
 
 
 def test_resolve_stage_range() -> None:

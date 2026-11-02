@@ -4,10 +4,10 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from course.cli.app import app
-from course.cli.context import build_context
-from course.db.models import Topic
-from course.domain.ids import new_id
+from curricula.cli.app import app
+from curricula.cli.context import build_context
+from curricula.db.models import Topic
+from curricula.domain.ids import new_id
 
 runner = CliRunner()
 

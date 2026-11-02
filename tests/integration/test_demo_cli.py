@@ -4,7 +4,7 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from course.cli.app import app
+from curricula.cli.app import app
 
 runner = CliRunner()
 

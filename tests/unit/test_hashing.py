@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from course.media.hashing import sha256_file
+from curricula.media.hashing import sha256_file
 
 
 def test_sha256_file_deterministic(tmp_path: Path) -> None:

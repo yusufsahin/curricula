@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from fastapi.testclient import TestClient
 
-from course.api.app import create_app
-from course.db.models import Topic
-from course.db.repositories.courses import get_or_create_course
-from course.domain.ids import new_id
+from curricula.api.app import create_app
+from curricula.db.models import Topic
+from curricula.db.repositories.courses import get_or_create_course
+from curricula.domain.ids import new_id
 
 
 def test_health_and_status(settings, session_factory) -> None:

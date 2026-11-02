@@ -1,4 +1,4 @@
-from course.transcription.normalize import normalize_text
+from curricula.transcription.normalize import normalize_text
 
 
 def test_normalize_preserves_abap_tokens() -> None:
